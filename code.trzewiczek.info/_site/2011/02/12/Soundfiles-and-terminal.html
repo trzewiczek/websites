@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+		
+    <title>Mostly JavaScript blog</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-31186181-1']);
+      _gaq.push(['_setDomainName', 'trzewiczek.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+	</head>
+  <body>
+    <article>
+       <h1 class="title">Sound and Terminal</h1>
+ <p>My hard drive is full of mp3 files - my phone doesn&#8217;t understand a different format, so I&#8217;m forced to keep them this way. But when I want to publish my music on my website I choose ogg format - the open audio format available for modern browsers. How to convert files from mp3 to ogg in terminal? I just need <em>lame</em>, <em>oggenc</em> and a small pipe.</p>
+
+<p><em>lame</em> is a small program that allows you to create files in mp3 format. Its list of options is long, but for us the most interesting is the option - <em>decode</em>. Thanks to it we can read the mp3 file as a raw audio stream. Of course it does not improve sound quality, but at least lets me do something with this stream.</p>
+
+<p>The second program we need is <em>oggenc</em> - the ogg vorbis codec. Although its list of options is even longer, we will use only one. Option <em>-</em> (the dash) allows you to load raw audio stream.</p>
+
+<p>The connection (via pipe) looks something like this:</p>
+<pre>
+  lame - decode my_file.mp3 - | oggenc - raw -o my_file.ogg</pre>
+<p>What&#8217;s going on with these additional <em>-</em> and <em>|</em>? The point is that both <em>lame</em> and <em>oggenc</em> need two files - one for the input (file we want to convert) and one output (new file to be created). But to combine both programs I use the Unix pipe mechanism. Lonely dashes in this snippet of code mean: <em>save to</em> / <em>read from</em> standard IO stream, which is <strong>de facto</strong> terminal window itself. Thus we do not create a temporary file with the intermediate state (raw audio file), but one goes straight to the other.</p>
+
+<p>Remaining question is: how to do it in bulk? A simple bash loop will do:</p>
+<pre>
+  for f in * mp3; do
+    lame - decode $ f - | oggenc - raw - about ${f/mp3/ogg};
+  done</pre>
+<p>The strange looking ${f/mp3/ogg} changes the extension in the files names - nothing special actually.</p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'code-trzewiczek-info'; 
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </article>
+
+  	<aside>
+      <h2>About me</h2>
+      <p>I'm a software developer working in open gov field at 
+        <a href="http://centrumcyfrowe.pl/" target="_blank">Centrum Cyfrowe</a>. 
+        I'm also an artist and musician working in theatre and experimental/improvised music. 
+        I teach non-programmers how to program and have fun with code. 
+      </p>
+      <h2>Other channels</h2>
+      <p>
+        website: <a href="http://trzewiczek.info">trzewiczek.info</a> [pl] <br />
+        twitter: <a href="http://twitter.com/#!/trzewiczek">@trzewiczek</a> <br />
+        github: <a href="http://github.com/trzewiczek">trzewiczek</a>
+      </p>
+      <h2>Previous posts</h2>
+      
+          <p>25 Apr 2012 :: Warszawa<br /><a href='/2012/04/25/Simple-logger-in-JavaScript.html'>Simple step logger in JavaScript</a></p>
+      
+          <p>21 Apr 2012 :: Dąbrowa Górnicza<br /><a href='/2012/04/21/Changing-arity-of-recursive-calls-in-JavaScript.html'>Changing arity of recursive calls in JavaScript</a></p>
+      
+          <p>30 Mar 2012 :: Vilnius<br /><a href='/2012/03/30/Parallel-asynchronous-callbacks-in-JavaScript.html'>Parallel asynchronous callbacks in JavaScript</a></p>
+      
+          <p>07 Dec 2011 :: Warszawa<br /><a href='/2011/12/07/Callbacks-and-closures-in-JavaScript.html'>Callbacks and closures in JavaScript</a></p>
+      
+          <p>12 Feb 2011 :: Dąbrowa Górnicza<br /><a href='/2011/02/12/Soundfiles-and-terminal.html'>Sound and Terminal</a></p>
+      
+    </aside>
+ 
+    <br style="clear: both" />
+    <footer>
+      <a style="float: left;" rel="license" href="http://creativecommons.org/licenses/by/3.0/pl/"><img alt="Licencja Creative Commons BY-PL 3.0" style="border-width:0; margin-top: 3px; margin-right: 5px;" src="http://i.creativecommons.org/l/by/3.0/pl/80x15.png"></a>
+      <span style="float: left;">All texts are published under Creative Commons Attribution 3.0 Pl license. All code snippets are published under <a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank">WTFPL license</a></span>
+    </footer>
+    <br style="clear: both" />
+ 
+</body>
+</html>

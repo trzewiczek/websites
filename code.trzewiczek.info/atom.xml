@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>trzewiczek blog</title>
+ <link href="http://code.trzewiczek.info/atom.xml" rel="self"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://code.trzewiczek.info/</id>
+ <author>
+   <name>trzewiczek</name>
+   <email>krzysztof@trzewiczek.info</email>
+ </author>
+ 
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://code.trzewiczek.info{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://code.trzewiczek.info/{{ post.id }}</id>
+   <content type="html">{{ post.content }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>

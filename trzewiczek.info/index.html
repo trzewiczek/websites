@@ -1,0 +1,22 @@
+---
+layout: base
+---
+<section class="content">
+  <ul class="entries">
+  {% for post in site.posts %}
+    <li>
+      <div class="left">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <br />
+        {{ post.date | date: "%d.%m.%Y" }}
+      </div>
+      <div class="right">
+        {{ post.blurb }}
+        <br />
+        <a style="float:right;" href="{{ post.url }}">Czytaj dalej >></a>
+      </div>
+
+    </li>
+  {% endfor %}
+  </ul>
+</section>

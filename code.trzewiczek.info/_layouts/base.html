@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+		
+    <title>Mostly JavaScript blog</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-31186181-1']);
+      _gaq.push(['_setDomainName', 'trzewiczek.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+	</head>
+  <body>
+    <article>
+      {{ content }}
+    </article>
+
+  	<aside>
+      <h2>About me</h2>
+      <p>I'm a software developer working in open gov field at 
+        <a href="http://centrumcyfrowe.pl/" target="_blank">Centrum Cyfrowe</a>. 
+        I'm also an artist and musician working in theatre and experimental/improvised music. 
+        I teach non-programmers how to program and have fun with code. 
+      </p>
+      <h2>Other channels</h2>
+      <p>
+        website: <a href="http://trzewiczek.info">trzewiczek.info</a> [pl] <br />
+        twitter: <a href="http://twitter.com/#!/trzewiczek">@trzewiczek</a> <br />
+        github: <a href="http://github.com/trzewiczek">trzewiczek</a>
+      </p>
+      <h2>Previous posts</h2>
+      {% for post in site.posts limit:10 %}
+          <p>{{ post.date | date_to_string }} :: {{ post.location }}<br /><a href='{{ post.url }}'>{{ post.title }}</a></p>
+      {% endfor %}
+    </aside>
+ 
+    <br style="clear: both" />
+    <footer>
+      <a style="float: left;" rel="license" href="http://creativecommons.org/licenses/by/3.0/pl/"><img alt="Licencja Creative Commons BY-PL 3.0" style="border-width:0; margin-top: 3px; margin-right: 5px;" src="http://i.creativecommons.org/l/by/3.0/pl/80x15.png"></a>
+      <span style="float: left;">All texts are published under Creative Commons Attribution 3.0 Pl license. All code snippets are published under <a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank">WTFPL license</a></span>
+    </footer>
+    <br style="clear: both" />
+ 
+</body>
+</html>

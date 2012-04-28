@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+		
+    <title>Mostly JavaScript blog</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-31186181-1']);
+      _gaq.push(['_setDomainName', 'trzewiczek.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+	</head>
+  <body>
+    <article>
+       <h1 class="title">Callbacks and closures in JavaScript</h1>
+ <p>A classic example of a closure - probably one of the post powerfull JavaScript feature - is the counter.</p>
+<pre><span class='hl kwa'>function</span> <span class='hl kwd'>counter</span> <span class='hl opt'>() {</span>
+  <span class='hl kwa'>var</span> num <span class='hl opt'>=</span> <span class='hl num'>0</span><span class='hl opt'>;</span>
+
+  <span class='hl kwa'>return</span> <span class='hl opt'>{</span>
+      add_one<span class='hl opt'>:</span> <span class='hl kwa'>function</span> <span class='hl opt'>() {</span>
+          num <span class='hl opt'>+ =</span> <span class='hl num'>1</span><span class='hl opt'>;</span>
+          <span class='hl kwa'>return</span> num<span class='hl opt'>;</span>
+      <span class='hl opt'>},</span>
+      get_num<span class='hl opt'>:</span> <span class='hl kwa'>function</span> <span class='hl opt'>() {</span>
+          <span class='hl kwa'>return</span> num<span class='hl opt'>;</span>
+      <span class='hl opt'>}</span>
+  <span class='hl opt'>};</span>
+<span class='hl opt'>}</span>
+
+<span class='hl kwa'>var</span> my_counter <span class='hl opt'>=</span> <span class='hl kwd'>counter</span><span class='hl opt'>();</span>
+console<span class='hl opt'>.</span><span class='hl kwd'>log</span><span class='hl opt'>(</span> my_counter<span class='hl opt'>.</span><span class='hl kwd'>get_num</span><span class='hl opt'>() );</span>
+console<span class='hl opt'>.</span><span class='hl kwd'>log</span><span class='hl opt'>(</span> my_counter<span class='hl opt'>.</span><span class='hl kwd'>add_one</span><span class='hl opt'>() );</span> </pre>
+<p>Simple and understandable. Two interesting things about this solution are:</p>
+
+<ul>
+<li>despite the fact that the counter function terminates, after creating and returning the new object, the <strong>num</strong> object is stored in memory (garbage collector won&#8217;t remove it), because both methods in returned object have access to it, so they keep the reference (this is the closure)</li>
+
+<li>num variable is only available via two methods for the newly created object, which makes it private. This mean that the returned object becomes very clear and one hundred percent secure interface to the state stored in the closure.</li>
+</ul>
+
+<p>Nice example and real-world actually, because using closures as a private state with a public interface pattern is extremely common. But to understand the full power of closures, let&#8217;s look at an example from the asyncronous programming area.</p>
+
+<p>The example below is a standard asynchronous data access we use in Raw Salad. There are three modules:</p>
+
+<ul>
+<li><strong>_gui</strong> which is responsible for handling the GUI events and rendering things</li>
+
+<li><strong>_store</strong> which keeps the current state of the application</li>
+
+<li><strong>_db</strong> which, if necessary, grabs data from database</li>
+</ul>
+
+<p>The story would be something like this: after I click the button, data is being taken from the store and nicely rendered in the browser. If there&#8217;s no such data in the store, the _db module is requesting database for all we actually need. After the data is back, it&#8217;s saved in store and then passed to GUI for rendering. In the second scenario no one knows what will happen between the front-end and the back-end and how long we will wait for the response. What&#8217;s more, the _gui module can&#8217;t predict what data is available in the store and what has to be downloaded from the back-end. In fact the _gui module should know nothing about the way data is stored and manipulated - it handles events and renders the website.</p>
+<h3>_gui.js</h3><pre>$<span class='hl opt'>(</span><span class='hl str'>'#more-data-please'</span><span class='hl opt'>).</span><span class='hl kwd'>click</span><span class='hl opt'>(</span> <span class='hl kwa'>function</span> <span class='hl opt'>() {</span>
+    <span class='hl kwa'>var</span> destination <span class='hl opt'>=</span> $<span class='hl opt'>(</span><span class='hl kwa'>this</span><span class='hl opt'>).</span><span class='hl kwd'>parent</span><span class='hl opt'>();</span>
+    <span class='hl kwa'>var</span> render_data <span class='hl opt'>=</span> <span class='hl kwa'>function</span> <span class='hl opt'>(</span> from_store <span class='hl opt'>) {</span>
+        <span class='hl kwa'>var</span> new_data <span class='hl opt'>=</span> $<span class='hl opt'>(</span><span class='hl str'>'&lt;h1&gt;'</span> <span class='hl opt'>+</span> from_store <span class='hl opt'>+</span> <span class='hl str'>'&lt;/h1&gt;'</span><span class='hl opt'>);</span>
+        destination<span class='hl opt'>.</span><span class='hl kwd'>append</span><span class='hl opt'>(</span> new_data <span class='hl opt'>);</span>
+    <span class='hl opt'>});</span>
+
+    _store<span class='hl opt'>.</span><span class='hl kwd'>get_new_data</span><span class='hl opt'>(</span> render_data <span class='hl opt'>);</span>
+<span class='hl opt'>});</span></pre><br /><h3>_store.js</h3><pre><span class='hl kwa'>function</span> <span class='hl kwd'>get_new_data</span><span class='hl opt'>(</span> callback <span class='hl opt'>) {</span>
+    <span class='hl kwa'>var</span> data <span class='hl opt'>=</span> <span class='hl kwd'>data_from_store</span><span class='hl opt'>();</span>
+
+    <span class='hl kwa'>if</span><span class='hl opt'>( !!</span>data <span class='hl opt'>) {</span>
+        <span class='hl kwd'>callback</span><span class='hl opt'>(</span> data <span class='hl opt'>);</span>
+    <span class='hl opt'>}</span>
+    <span class='hl kwa'>else</span> <span class='hl opt'>{</span>
+        _db<span class='hl opt'>.</span><span class='hl kwd'>get_more_data</span><span class='hl opt'>(</span> <span class='hl kwa'>function</span> <span class='hl opt'>(</span> new_data <span class='hl opt'>) {</span>
+            <span class='hl kwd'>store_new_data</span><span class='hl opt'>(</span> new_data <span class='hl opt'>);</span>
+            <span class='hl kwd'>callback</span><span class='hl opt'>(</span> new_data <span class='hl opt'>);</span>
+        <span class='hl opt'>});</span>
+    <span class='hl opt'>}</span>
+<span class='hl opt'>}</span></pre><br /><h3>_db.js</h3><pre><span class='hl kwa'>function</span> <span class='hl kwd'>get_more_data</span><span class='hl opt'>(</span> callback <span class='hl opt'>) {</span>
+    $<span class='hl opt'>.</span><span class='hl kwd'>get</span><span class='hl opt'>(</span><span class='hl str'>'/more_data/'</span><span class='hl opt'>, {},</span> callback<span class='hl opt'>);</span>
+<span class='hl opt'>}</span></pre>
+<p>Of course, some things are simplified here - it&#8217;s just a pattern, not a specific case. The important thing is that with the closure callback sent from _gui to _store has a reference to the destination object. It mean that as soon as the data is available, the callback know how and <strong>where</strong> to render them. This simple example shows that closures becomes a great means of code modularization. _gui module knows what data it wants, how to present it and is deeply convinced that all the data is available from _store. On the other hand store has no idea who asks for data and how it&#8217;s going to use the data, but knows the with a request a black box came with inscription: &#8220;Do the magic&#8221;. What&#8217;s more - if there&#8217;s no data in the store, the _store module knows that it can request that data from _db module. And again this module has no idea who&#8217;s asking for the data and why, but gets a little black box with inscription &#8220;All the magic happens here&#8221;.</p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'code-trzewiczek-info'; 
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </article>
+
+  	<aside>
+      <h2>About me</h2>
+      <p>I'm a software developer working in open gov field at 
+        <a href="http://centrumcyfrowe.pl/" target="_blank">Centrum Cyfrowe</a>. 
+        I'm also an artist and musician working in theatre and experimental/improvised music. 
+        I teach non-programmers how to program and have fun with code. 
+      </p>
+      <h2>Other channels</h2>
+      <p>
+        website: <a href="http://trzewiczek.info">trzewiczek.info</a> [pl] <br />
+        twitter: <a href="http://twitter.com/#!/trzewiczek">@trzewiczek</a> <br />
+        github: <a href="http://github.com/trzewiczek">trzewiczek</a>
+      </p>
+      <h2>Previous posts</h2>
+      
+          <p>25 Apr 2012 :: Warszawa<br /><a href='/2012/04/25/Simple-logger-in-JavaScript.html'>Simple step logger in JavaScript</a></p>
+      
+          <p>21 Apr 2012 :: Dąbrowa Górnicza<br /><a href='/2012/04/21/Changing-arity-of-recursive-calls-in-JavaScript.html'>Changing arity of recursive calls in JavaScript</a></p>
+      
+          <p>30 Mar 2012 :: Vilnius<br /><a href='/2012/03/30/Parallel-asynchronous-callbacks-in-JavaScript.html'>Parallel asynchronous callbacks in JavaScript</a></p>
+      
+          <p>07 Dec 2011 :: Warszawa<br /><a href='/2011/12/07/Callbacks-and-closures-in-JavaScript.html'>Callbacks and closures in JavaScript</a></p>
+      
+          <p>12 Feb 2011 :: Dąbrowa Górnicza<br /><a href='/2011/02/12/Soundfiles-and-terminal.html'>Sound and Terminal</a></p>
+      
+    </aside>
+ 
+    <br style="clear: both" />
+    <footer>
+      <a style="float: left;" rel="license" href="http://creativecommons.org/licenses/by/3.0/pl/"><img alt="Licencja Creative Commons BY-PL 3.0" style="border-width:0; margin-top: 3px; margin-right: 5px;" src="http://i.creativecommons.org/l/by/3.0/pl/80x15.png"></a>
+      <span style="float: left;">All texts are published under Creative Commons Attribution 3.0 Pl license. All code snippets are published under <a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank">WTFPL license</a></span>
+    </footer>
+    <br style="clear: both" />
+ 
+</body>
+</html>

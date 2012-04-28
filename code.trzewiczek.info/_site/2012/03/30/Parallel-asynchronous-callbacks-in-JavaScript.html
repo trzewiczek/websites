@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+		
+    <title>Mostly JavaScript blog</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/highlight.css" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-31186181-1']);
+      _gaq.push(['_setDomainName', 'trzewiczek.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+	</head>
+  <body>
+    <article>
+       <h1 class="title">Parallel asynchronous callbacks in JavaScript</h1>
+ <p>The task was quite simple, but turned out that it was fun to code. There was some elections data to be presented on the website and all to be downloaded through the API of election office. Each election had its own API URL, but the format of data was common. The visualisation script was prepared to present the data all at once comparing some statistics between each issue. The problem then was, how to get data from three different API URLs effectively and present them after each call is done. The solution came from closures of course.</p>
+
+<p>The problem is, that we want to send a few async requests at once and have to keep the program running until all data is collected and then some rendering script to be launched. This is a classic closure pattern. You send the request which callbacks keep one shared results object as a closure and another callback that will be triggered after all data arrive.</p>
+
+<p>So there is an empty results array (the shared object), there is a draw_graph callback to be triggered at the end, the is a counter of how many datasets has been already collected and that&#8217;s all.</p>
+<pre><span class='hl kwa'>function</span> <span class='hl kwd'>load_election_data</span><span class='hl opt'>(</span> draw_graph<span class='hl opt'>,</span> urls <span class='hl opt'>) {</span>
+    <span class='hl kwa'>var</span> i<span class='hl opt'>;</span>
+    <span class='hl kwa'>var</span> reqs_number <span class='hl opt'>=</span> urls<span class='hl opt'>.</span>length<span class='hl opt'>;</span>
+    <span class='hl kwa'>var</span> results     <span class='hl opt'>=</span> <span class='hl kwa'>new</span> <span class='hl kwd'>Array</span><span class='hl opt'>(</span> reqs_number <span class='hl opt'>);</span>
+    <span class='hl kwa'>var</span> remaining   <span class='hl opt'>=</span> reqs_number<span class='hl opt'>;</span>
+
+    <span class='hl kwa'>for</span><span class='hl opt'>(</span> i <span class='hl opt'>=</span> <span class='hl num'>0</span><span class='hl opt'>;</span> i <span class='hl opt'>&lt;</span> reqs_number<span class='hl opt'>; ++</span>i <span class='hl opt'>) {</span>
+        <span class='hl opt'>(</span><span class='hl kwa'>function</span> <span class='hl opt'>(</span> inx <span class='hl opt'>) {</span>
+            $<span class='hl opt'>.</span><span class='hl kwd'>ajax</span><span class='hl opt'>({</span>
+                <span class='hl str'>'url'</span>     <span class='hl opt'>:</span> urls<span class='hl kwc'>[inx]</span><span class='hl opt'>,</span>
+                <span class='hl str'>'success'</span> <span class='hl opt'>:</span> <span class='hl kwa'>function</span> <span class='hl opt'>(</span> received_data <span class='hl opt'>) {</span>
+                    <span class='hl slc'>// fill the proper place in the array</span>
+                    results<span class='hl kwc'>[inx]</span> <span class='hl opt'>=</span> received_data<span class='hl opt'>;</span>
+                    remaining <span class='hl opt'>-=</span> <span class='hl num'>1</span><span class='hl opt'>;</span>
+                    <span class='hl slc'>// check if all reasults are downloaded</span>
+                    <span class='hl kwa'>if</span><span class='hl opt'>( !</span>remaining <span class='hl opt'>) {</span>
+                        <span class='hl kwd'>callback</span><span class='hl opt'>(</span> results <span class='hl opt'>);</span>
+                    <span class='hl opt'>}</span>
+                <span class='hl opt'>}</span>
+            <span class='hl opt'>});</span>
+        <span class='hl opt'>})(</span>i<span class='hl opt'>);</span>
+    <span class='hl opt'>}</span>
+<span class='hl opt'>}</span></pre>
+<p>As it&#8217;s seen in the code above, an empty array is created in advance. That&#8217;s because is will let keep results ordered, tough the order they arrive is not predictable.</p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'code-trzewiczek-info'; 
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </article>
+
+  	<aside>
+      <h2>About me</h2>
+      <p>I'm a software developer working in open gov field at 
+        <a href="http://centrumcyfrowe.pl/" target="_blank">Centrum Cyfrowe</a>. 
+        I'm also an artist and musician working in theatre and experimental/improvised music. 
+        I teach non-programmers how to program and have fun with code. 
+      </p>
+      <h2>Other channels</h2>
+      <p>
+        website: <a href="http://trzewiczek.info">trzewiczek.info</a> [pl] <br />
+        twitter: <a href="http://twitter.com/#!/trzewiczek">@trzewiczek</a> <br />
+        github: <a href="http://github.com/trzewiczek">trzewiczek</a>
+      </p>
+      <h2>Previous posts</h2>
+      
+          <p>25 Apr 2012 :: Warszawa<br /><a href='/2012/04/25/Simple-logger-in-JavaScript.html'>Simple step logger in JavaScript</a></p>
+      
+          <p>21 Apr 2012 :: Dąbrowa Górnicza<br /><a href='/2012/04/21/Changing-arity-of-recursive-calls-in-JavaScript.html'>Changing arity of recursive calls in JavaScript</a></p>
+      
+          <p>30 Mar 2012 :: Vilnius<br /><a href='/2012/03/30/Parallel-asynchronous-callbacks-in-JavaScript.html'>Parallel asynchronous callbacks in JavaScript</a></p>
+      
+          <p>07 Dec 2011 :: Warszawa<br /><a href='/2011/12/07/Callbacks-and-closures-in-JavaScript.html'>Callbacks and closures in JavaScript</a></p>
+      
+          <p>12 Feb 2011 :: Dąbrowa Górnicza<br /><a href='/2011/02/12/Soundfiles-and-terminal.html'>Sound and Terminal</a></p>
+      
+    </aside>
+ 
+    <br style="clear: both" />
+    <footer>
+      <a style="float: left;" rel="license" href="http://creativecommons.org/licenses/by/3.0/pl/"><img alt="Licencja Creative Commons BY-PL 3.0" style="border-width:0; margin-top: 3px; margin-right: 5px;" src="http://i.creativecommons.org/l/by/3.0/pl/80x15.png"></a>
+      <span style="float: left;">All texts are published under Creative Commons Attribution 3.0 Pl license. All code snippets are published under <a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank">WTFPL license</a></span>
+    </footer>
+    <br style="clear: both" />
+ 
+</body>
+</html>
