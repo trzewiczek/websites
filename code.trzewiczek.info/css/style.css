@@ -62,3 +62,17 @@ ul {
   color: #999;
 }
 
+.hl.num { color:#dca3a3; font-weight:bold; }
+.hl.esc { color:#dca3a3; font-weight:bold; }
+.hl.str { color:#cc9393; }
+.hl.pps { color:#cc9393; }
+.hl.slc { color:#999; }
+.hl.com { color:#999; }
+.hl.ppc { color:#ffcfaf; font-weight:bold; }
+.hl.opt { color:#dcdccc; }
+.hl.lin { color:#9fafaf; }
+.hl.kwa { color:#e3ceab; }
+.hl.kwb { color:#dfdfbf; font-weight:bold; }
+.hl.kwc { color:#aae3b2; }
+.hl.kwd { color:#aabfe3; }
+.hl.err { color:#b25a5c; }
