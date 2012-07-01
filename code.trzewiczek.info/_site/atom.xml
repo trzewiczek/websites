@@ -3,7 +3,7 @@
  
  <title>trzewiczek blog</title>
  <link href="http://code.trzewiczek.info/atom.xml" rel="self"/>
- <updated>2012-07-01T21:59:23+02:00</updated>
+ <updated>2012-07-01T22:02:58+02:00</updated>
  <id>http://code.trzewiczek.info/</id>
  <author>
    <name>trzewiczek</name>
@@ -53,7 +53,7 @@
 </pre>
 <p>How it works? When the interpreter enters the execution context of the function expression inside the brackets, it creates the arguments object and then goes to all function declarations collecting them at the top of the function - practice known as <strong>hoisting</strong>. That means that <strong>helper1</strong> and <strong>helper2</strong> goes up to the top of the function even they are declared after the return statement. Then the that variable declaration is done, but without the initialization. After that the code execution phase starts and that is initialized with a public interface object and only after that (as the code execution goes from top down) the <strong>that.do_sth_with</strong> is being overwritten but the new packed version of itself. Finally, the that object (which is the public interface of this module) is returned and assigned to the <strong>_myModule</strong> variable.</p>
 
-<p>I personally like this way of organizing the modules, because it separates the private from public and working with other developers I don&#8217;t have to deal with internals that much, because everything I&#8217;m interested in is grouped in one place and the helpers are somewhere down at the bottom of the file. What&#8217;s more - there is a special space for setting up the <a title='Simple step logger' href='http://code.trzewiczek.info/2012/04/25/Simple-logger-in-JavaScript.html'>loggers</a> and again it&#8217;s very predictable for me where to look for it and where to add it to keep it save and reliable.</p>
+<p>I personally like this way of organizing the modules, because it separates the private from public and working with other developers I don&#8217;t have to deal with internals that much, because everything I&#8217;m interested in is grouped in one place and the helpers are somewhere down at the bottom of the file. What&#8217;s more - there is a special space for setting up the <a href='http://code.trzewiczek.info/2012/04/25/Simple-logger-in-JavaScript.html' title='Simple step logger'>loggers</a> and again it&#8217;s very predictable for me where to look for it and where to add it to keep it save and reliable.</p>
 
 <p>This kind of organization of the module code can be pushed a little farther, by introducing a shared functions space. Let&#8217;s modify a little the previous example:</p>
 <pre>
@@ -97,12 +97,12 @@
 <pre>
 <span class='hl slc'>// we run the public cube function inside the console.log</span>
 <span class='hl slc'>// because cube doesn't print the results by itself</span>
-console.log('---- 1 ----');
+console.log(<span class='hl str'>'---- 1 ----'</span>);
 console.log(_myModule2.cube(<span class='hl num'>3</span>));
 <span class='hl slc'>// >>> 27</span>
 
 <span class='hl slc'>// we run the method that uses private cube internally</span>
-console.log('---- 2 ----');
+console.log(<span class='hl str'>'---- 2 ----'</span>);
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
 <span class='hl slc'>// >>> 27</span>
 
@@ -111,13 +111,13 @@ _myModule2.cube = <span class='hl kwa'>function</span> (x) { console.log(x/<span
 
 <span class='hl slc'>// again we run the method that uses private cube internally</span>
 <span class='hl slc'>// to see if the private one has been affected</span>
-console.log('---- 3 ----');
+console.log(<span class='hl str'>'---- 3 ----'</span>);
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
 <span class='hl slc'>// >>> 27</span>
 
 <span class='hl slc'>// and now we run the new public cube method to see</span>
 <span class='hl slc'>// if the change has been successful </span>
-console.log('---- 4 ----');
+console.log(<span class='hl str'>'---- 4 ----'</span>);
 _myModule2.cube(<span class='hl num'>3</span>);
 <span class='hl slc'>// >>> 0.003</span>
 </pre>

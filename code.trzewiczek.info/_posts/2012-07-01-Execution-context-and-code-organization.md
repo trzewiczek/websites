@@ -131,12 +131,12 @@ for the private interface.
 <pre>
 <span class="hl slc">// we run the public cube function inside the console.log</span>
 <span class="hl slc">// because cube doesn't print the results by itself</span>
-console.log('---- 1 ----');
+console.log(<span class="hl str">'---- 1 ----'</span>);
 console.log(_myModule2.cube(<span class="hl num">3</span>));
 <span class="hl slc">// >>> 27</span>
 
 <span class="hl slc">// we run the method that uses private cube internally</span>
-console.log('---- 2 ----');
+console.log(<span class="hl str">'---- 2 ----'</span>);
 _myModule2.do_sth_else_with(<span class="hl num">3</span>);
 <span class="hl slc">// >>> 27</span>
 
@@ -145,13 +145,13 @@ _myModule2.cube = <span class="hl kwa">function</span> (x) { console.log(x/<span
 
 <span class="hl slc">// again we run the method that uses private cube internally</span>
 <span class="hl slc">// to see if the private one has been affected</span>
-console.log('---- 3 ----');
+console.log(<span class="hl str">'---- 3 ----'</span>);
 _myModule2.do_sth_else_with(<span class="hl num">3</span>);
 <span class="hl slc">// >>> 27</span>
 
 <span class="hl slc">// and now we run the new public cube method to see</span>
 <span class="hl slc">// if the change has been successful </span>
-console.log('---- 4 ----');
+console.log(<span class="hl str">'---- 4 ----'</span>);
 _myModule2.cube(<span class="hl num">3</span>);
 <span class="hl slc">// >>> 0.003</span>
 </pre>
