@@ -24,10 +24,8 @@
 	</head>
   <body>
     <article>
-      <section class="content">
-  <div class='post'>
-    <h1><a href='/2012/07/01/Execution-context-and-code-organization.html'>Execution context and code organization</a></h1>
-    <div class='body'><p>JavaScript execution context goes through two phases: entering the context which is declaration phase and code execution phase, when the code is executed from the top down. What&#8217;s interesting here is that one can use it to structure the code in a clear way. Let&#8217;s see the example:</p>
+       <h1 class="title">Execution context and code organization</h1>
+ <p>JavaScript execution context goes through two phases: entering the context which is declaration phase and code execution phase, when the code is executed from the top down. What&#8217;s interesting here is that one can use it to structure the code in a clear way. Let&#8217;s see the example:</p>
 <pre>
 <span class='hl kwa'>var</span> _myModule = (<span class='hl kwa'>function</span> () {
     <span class='hl slc'>// p u b l i c   i n t e r f a c e </span>
@@ -124,10 +122,20 @@ _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
 console.log('---- 4 ----');
 _myModule2.cube(<span class='hl num'>3</span>);
 </pre>
-<p>As we see the shared interface worked perfect. Again, by using the shared interface we separate private from public on the one hand and on the other one we give a hint to other developers that potentially this method might be changed somewhere in the client&#8217;s code and the module is prepared for that situation.</p></div>
-  </div>
-  <a style="float: right; margin-bottom: 50px;" href="/2012/07/01/Execution-context-and-code-organization.html#disqus_thread">Read/Write comments</a>
-</section>
+<p>As we see the shared interface worked perfect. Again, by using the shared interface we separate private from public on the one hand and on the other one we give a hint to other developers that potentially this method might be changed somewhere in the client&#8217;s code and the module is prepared for that situation.</p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = 'code-trzewiczek-info'; 
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
     </article>
 
