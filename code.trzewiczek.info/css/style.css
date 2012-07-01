@@ -33,11 +33,12 @@ aside {
   width: 30%;
 }
 a {
-  color: #333;
+  color: #335588;
   text-decoration: none;
 }
 a:hover {
   color: #888;
+  text-decoration: underline;
 }
 pre {
   line-height: 17px;
