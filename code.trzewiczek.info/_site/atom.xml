@@ -3,7 +3,7 @@
  
  <title>trzewiczek blog</title>
  <link href="http://code.trzewiczek.info/atom.xml" rel="self"/>
- <updated>2012-07-01T20:14:32+02:00</updated>
+ <updated>2012-07-01T20:16:50+02:00</updated>
  <id>http://code.trzewiczek.info/</id>
  <author>
    <name>trzewiczek</name>
@@ -99,10 +99,12 @@
 <span class='hl slc'>// because cube doesn't print the results by itself</span>
 console.log('---- 1 ----');
 console.log(_myModule2.cube(<span class='hl num'>3</span>));
+<span class='hl slc'>// >>> 27</span>
 
 <span class='hl slc'>// we run the method that uses private cube internally</span>
 console.log('---- 2 ----');
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
+<span class='hl slc'>// >>> 27</span>
 
 <span class='hl slc'>// we overwrite the public method by some new function</span>
 _myModule2.cube = <span class='hl kwa'>function</span> (x) { console.log(x/<span class='hl num'>1000</span>); };
@@ -111,11 +113,13 @@ _myModule2.cube = <span class='hl kwa'>function</span> (x) { console.log(x/<span
 <span class='hl slc'>// to see if the private one has been affected</span>
 console.log('---- 3 ----');
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
+<span class='hl slc'>// >>> 27</span>
 
 <span class='hl slc'>// and now we run the new public cube method to see</span>
 <span class='hl slc'>// if the change has been successful </span>
 console.log('---- 4 ----');
 _myModule2.cube(<span class='hl num'>3</span>);
+<span class='hl slc'>// >>> 0.003</span>
 </pre>
 <p>As we see the shared interface worked perfect. Again, by using the shared interface we separate private from public on the one hand and on the other one we give a hint to other developers that potentially this method might be changed somewhere in the client&#8217;s code and the module is prepared for that situation.</p></content>
  </entry>
