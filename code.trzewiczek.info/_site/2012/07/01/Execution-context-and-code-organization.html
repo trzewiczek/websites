@@ -102,21 +102,25 @@
     }
 })();
 </pre>
-<p>We added a new function to the module called cube. It&#8217;s implementation stays in the private section, but after defining the public interface, we added this function to that object, so it&#8217;s publicly accessible. Why we do it? The reason is that in the client&#8217;s code there might be a situation that the cube method of the object <em>myModule2 will have to be overwritten - e.g. packed by a logger or some validator functions. The assignment will work perfectly, but on the other hand we won&#8217;t change the behaviour of our private cube function, so when it will be called from within the</em>myModule2.do_sth_else method everything will stay as it was at the beginning. That&#8217;s why it&#8217;s called shared interface, because it becomes public but in a secure way for the private interface.</p>
+<p>We added a new function to the module called cube. It&#8217;s implementation stays in the private section, but after defining the public interface, we added this function to that object, so it&#8217;s publicly accessible. Why we do it? The reason is that in the client&#8217;s code there might be a situation that the cube method of the object <strong>_myModule2</strong> will have to be overwritten - e.g. packed by a logger or some validator functions. The assignment will work perfectly, but on the other hand we won&#8217;t change the behaviour of our private cube function, so when it will be called from within the <strong>_myModule2.do_sth_else</strong> method everything will stay as it was at the beginning. That&#8217;s why it&#8217;s called shared interface, because it becomes public but in a secure way for the private interface.</p>
 <pre>
 <span class='hl slc'>// we run the public cube function inside the console.log</span>
 <span class='hl slc'>// because cube doesn't print the results by itself</span>
 console.log('---- 1 ----');
 console.log(_myModule2.cube(<span class='hl num'>3</span>));
+
 <span class='hl slc'>// we run the method that uses private cube internally</span>
 console.log('---- 2 ----');
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
+
 <span class='hl slc'>// we overwrite the public method by some new function</span>
 _myModule2.cube = <span class='hl kwa'>function</span> (x) { console.log(x/<span class='hl num'>1000</span>); };
+
 <span class='hl slc'>// again we run the method that uses private cube internally</span>
 <span class='hl slc'>// to see if the private one has been affected</span>
 console.log('---- 3 ----');
 _myModule2.do_sth_else_with(<span class='hl num'>3</span>);
+
 <span class='hl slc'>// and now we run the new public cube method to see</span>
 <span class='hl slc'>// if the change has been successful </span>
 console.log('---- 4 ----');
