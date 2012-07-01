@@ -67,7 +67,7 @@ with other developers I don't have to deal with internals
 that much, because everything I'm interested in is grouped 
 in one place and the helpers are somewhere down at the
 bottom of the file. What's more - there is a special
-space for setting up the loggers and again it's very
+space for setting up the [loggers](http://code.trzewiczek.info/2012/04/25/Simple-logger-in-JavaScript.html "Simple step logger") and again it's very
 predictable for me where to look for it and where to 
 add it to keep it save and reliable. 
 
