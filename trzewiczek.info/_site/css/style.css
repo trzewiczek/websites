@@ -1,1 +1,89 @@
-body{width:760px;margin:10px auto;background-color:#fff;font:16px/1.7;font-family:'Bree Serif',serif;color:#444}header{margin:0}h1,h2,h3{margin:0;padding:0;font-family:'Dosis',sans-serif;font-weight:normal;color:#888}h1{font-size:3em}nav{margin:0}ul{margin:0;padding:0;list-style-type:none}nav li{float:left;font-size:1.5em;font-family:'Dosis',sans-serif;color:#888}nav a{margin-right:5px}a{color:#888;text-decoration:none}a:hover{color:#aaa;text-decoration:underline}.entries li{clear:both;padding-top:20px}footer{clear:both;margin-top:50px;font-size:.8em;color:#888}.title{clear:both;margin:0;margin-top:20px;font-size:1.5em}.content .left{float:left;width:25%}.content .right{float:right;width:73%;padding-left:5px;border-left:2px solid #ededcc}
+body {
+  width: 760px;
+  margin: 10px auto;
+
+  background-color: #fff;
+
+  font-size: 16px;
+  line-height: 1.7em;
+  font-family: 'Noticia Text', serif;
+  color: #444;
+}
+header {
+  margin: 0px;
+}
+h1, h2, h3 {
+  margin: 0px;
+  padding: 0px;
+  
+  font-family: 'Dosis', sans-serif;
+  font-weight: normal;
+  color: #888;
+}
+h1 {
+  font-size: 3em;
+}
+nav {
+  margin: 0px;
+  margin-top: 10px;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+  
+  list-style-type: none;
+}
+nav li {
+  float: left;
+  
+  font-size: 1.5em;
+  font-family: 'Dosis', sans-serif;
+  color: #888;
+}
+nav a {
+  margin-right: 5px;
+}
+a {
+  color: #888;
+  text-decoration: none;
+}
+a:hover {
+  color: #aaa;
+  text-decoration: underline;
+}
+.entries li {
+  clear: both;
+  padding-top: 20px;
+}
+footer {
+  clear: both;
+  margin-top: 50px;
+
+  font-size: 0.8em;
+  color: #888;
+}
+.title {
+  clear: both;
+  margin: 0px;
+  margin-top: 20px;
+
+  font-size: 1.5em;
+}
+.content .left {
+  float: left;
+  width: 25%;
+}
+.content .right {
+  float: right;
+  width: 73%;
+  padding-left: 10px;
+
+  border-left: 2px solid #ededcc;
+}
+.more {
+  float:right;
+  margin-top: 5px;
+}
+.blurb {
+  margin: 0px;
+}

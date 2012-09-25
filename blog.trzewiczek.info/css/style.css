@@ -1,5 +1,5 @@
 body {
-  width: 760px;
+  width: 600px;
   margin: 10px auto;
 
   background-color: #fff;
@@ -11,6 +11,7 @@ body {
 }
 header {
   margin: 0px;
+  float: left;
 }
 h1, h2, h3 {
   margin: 0px;
@@ -21,11 +22,10 @@ h1, h2, h3 {
   color: #888;
 }
 h1 {
-  font-size: 3em;
+  font-size: 2em;
 }
 nav {
-  margin: 0px;
-  margin-top: 10px;
+  margin: 20px;
 }
 ul {
   margin: 0px;
@@ -64,26 +64,44 @@ footer {
 }
 .title {
   clear: both;
-  margin: 0px;
-  margin-top: 20px;
+  margin: 20px 0px;
 
   font-size: 1.5em;
 }
-.content .left {
+.left {
   float: left;
-  width: 25%;
 }
-.content .right {
+.right {
   float: right;
-  width: 73%;
+}
+.content div.left {
+  width: 13%;
+}
+.content div.right {
+  width: 84%;
   padding-left: 10px;
 
   border-left: 2px solid #ededcc;
 }
-.more {
-  float:right;
+.content a.right {
+  font-size: 0.9em;
   margin-top: 5px;
 }
-.blurb {
+.post .left {
+  width: 7%; 
+  margin-top: 20px;
+}
+.post .right {
+  width: 92%; 
+}
+.back-button {
   margin: 0px;
+  padding: 5px;
+  border-radius: 3px;
+}
+.back-button:hover {
+  background-color: #fafafa;
+}
+.blurb {
+  margin-top: 0px;
 }

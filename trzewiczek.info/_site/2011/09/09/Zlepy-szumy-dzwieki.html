@@ -5,7 +5,7 @@
   <title>  Zlepy, szumy, dźwięki |  trzewiczek.info</title>
   
   <link href="http://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
   
   <link rel="stylesheet" href="/css/style.css" />
@@ -24,7 +24,7 @@
 <body>
     <header>
       <h1> trzewiczek </h1>
-    <header>
+    </header>
  
     <nav role="navigation">
       <ul>
@@ -53,6 +53,32 @@
       <span style="margin-left: 5px; float: left;">Wszystkie materiały na tej stronie objęte są licencją Creative Commons Uznanie autorstwa 3.0 Polska</span>
     </footer>
     <br style="clear: both" />
- 
+    <script>
+      (function check_load() {   
+         document.readyState !== "complete" ? setTimeout(check_load,11) : polish();
+      })();  
+
+      function polish() {
+        var ndash   = String.fromCharCode(8211);
+        var quote   = String.fromCharCode(8220);
+        var p_quote = String.fromCharCode(8222);
+        var hellip  = String.fromCharCode(8230);
+        
+        var list = document.getElementsByTagName('p');
+        var txt, e;
+        var i, len;
+
+        for(i = 0, len = list.length; i < len; ++i) {
+          e = list[i];
+          txt = e.innerHTML;
+
+          txt = txt.replace(/ - /g, " "+ ndash +" "); 
+          txt = txt.replace(new RegExp(quote,'g'), p_quote);
+          txt = txt.replace(/\.\.\./g, hellip);
+
+          e.innerHTML = txt;
+        }
+      }
+  </script> 
 </body>
 </html>

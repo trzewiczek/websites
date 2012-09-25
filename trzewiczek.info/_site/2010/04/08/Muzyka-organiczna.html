@@ -5,7 +5,7 @@
   <title>  Muzyka organiczna |  trzewiczek.info</title>
   
   <link href="http://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
   
   <link rel="stylesheet" href="/css/style.css" />
@@ -24,7 +24,7 @@
 <body>
     <header>
       <h1> trzewiczek </h1>
-    <header>
+    </header>
  
     <nav role="navigation">
       <ul>
@@ -36,18 +36,15 @@
 
      <br style="clear: both;" />
  <p class="title">Muzyka organiczna</p>
- <p>Zrobiło się poważnie, gdy Marcin Barski powiedział, co interesuje go najbardziej w mojej muzyce. Okazuje sie, że nasze zainteresowania się spotykają, bo organiczność muzyki to, coś co czego w muzyce szukam. Wciąż nie mogę tego problemu dobrze uchwycić, ale jest on dla mnie priorytetowy.</p>
+ <p>Zrobiło się poważnie, gdy Marcin Barski powiedział, co interesuje go najbardziej w mojej muzyce. Okazuje sie, że nasze zainteresowania się spotykają, bo organiczność muzyki to, coś czego w muzyce szukam. Wciąż nie mogę tego problemu dobrze uchwycić, ale jest on dla mnie priorytetowy.</p>
 
 <p>Graliśmy w Eszewerii kolejny duet z Philem Palmerem. To była prawdziwa przyjemność. Ostatnim razem, gdy graliśmy koncert nagranie było naprawdę koszmarne, więc poprosiłem Piotrka Żyłę o nagranie tego koncertu, jak należy. Piotrek bardzo chciał nam pomóc, lecz dwa dni przed koncertem usłyszałem: &#8220;Jadę do Lipska na kilka dni, ale nie przejmuj się - rozmawiałem juz z Michałem Dymnym i zgodził się to wszystko nagrać. Ja zrobię postprodukcję!&#8221;. Michał Dymny?! Gitarzysta, Michał Dymny?! No cóż - bardzo lubię Michała, więc czemu nie.</p>
 
 <p>Przed koncertem Michał powiedział, że jego pierwsza lekcja pracy w Samplitudzie odbyła się w chwili, gdy Piotrek pakował się do Lipska i że nie może przypomnieć sobie, dlaczego coś właśnie nie działa. Ostatecznie udało się jednak uruchomić Samplituda jak należy, a Michał spisał się na medal.</p>
 
-<p>To był bardzo dobry koncert - dużo znajomych, dobra muza i naprawdę sporo radości z grania. Jeśli ktoś zainteresowany, to zapraszam do posłuchania mojego solo.</p>
-<audio autobuffer='' controls='' preload='auto'> 
-  <source src='http://trzewiczek.vipserv.org/audio/trzewiczek_eszeweria_solo_2010-04-08.ogg' />
-  <source src='http://trzewiczek.vipserv.org/audio/trzewiczek_eszeweria_solo_2010-04-08.mp3' />
-</audio>
-<p>Phil Palmer – saksofon<br /> trzewiczek – komputer</p>
+<p>To był bardzo dobry koncert - dużo znajomych, dobra muza i naprawdę sporo radości z grania.</p>
+
+<p>Phil Palmer - saksofon<br /> trzewiczek - komputer</p>
 
 <p><span>08.04.2010 @</span> Eszeweria, Kraków</p>
 
@@ -58,6 +55,32 @@
       <span style="margin-left: 5px; float: left;">Wszystkie materiały na tej stronie objęte są licencją Creative Commons Uznanie autorstwa 3.0 Polska</span>
     </footer>
     <br style="clear: both" />
- 
+    <script>
+      (function check_load() {   
+         document.readyState !== "complete" ? setTimeout(check_load,11) : polish();
+      })();  
+
+      function polish() {
+        var ndash   = String.fromCharCode(8211);
+        var quote   = String.fromCharCode(8220);
+        var p_quote = String.fromCharCode(8222);
+        var hellip  = String.fromCharCode(8230);
+        
+        var list = document.getElementsByTagName('p');
+        var txt, e;
+        var i, len;
+
+        for(i = 0, len = list.length; i < len; ++i) {
+          e = list[i];
+          txt = e.innerHTML;
+
+          txt = txt.replace(/ - /g, " "+ ndash +" "); 
+          txt = txt.replace(new RegExp(quote,'g'), p_quote);
+          txt = txt.replace(/\.\.\./g, hellip);
+
+          e.innerHTML = txt;
+        }
+      }
+  </script> 
 </body>
 </html>

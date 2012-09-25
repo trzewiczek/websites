@@ -9,6 +9,7 @@ Po przybyciu do Budapesztu szybko udało nam się znaleźć klub, lecz ku naszem
 
 W czasie tych dwóch dni zagrałem dwa sety – duet z Gergő Kovátsem i trio z Gergő i Patrykiem Lichotą. Przyznam, że byłem dość podejrzliwy wobec propozycji zagrania z dwoma saksofonistami w trio, w którym nikt z nikim wcześniej nie grał. Saksofon to głośny instrument i skory do wyrywki. Tym razem jednak Panowie panowali nad sobą i tylko kilka razy zdarzyło się tak, że nie było mnie słychać zupełnie zza ściany złotego drewna. Przyznam, że chętnie zagrałbym jeszcze kiedyś w takim składzie. A może jeszcze z Philem na trzeciej rurce?
 
+Wideo seta w duecie z Gergő można zobaczyć *[tutaj](http://vimeo.com/11614971 "Dokumentacja koncertu")*
 
 Márkos Albert – wiolonczela<br />
 János Bujdosó – gitara<br />

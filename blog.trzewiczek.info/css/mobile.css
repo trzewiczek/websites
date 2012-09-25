@@ -1,0 +1,110 @@
+body {
+  width: 95%;
+  margin: 20px auto;
+
+  background-color: #fff;
+
+  font-size: 30px;
+  line-height: 1.7em;
+  font-family: sans-serif;
+  color: #444;
+}
+header {
+  margin: 0px;
+  margin-bottom: 15px;
+  float: left;
+}
+h1, h2, h3 {
+  margin: 0px;
+  padding: 0px;
+  
+  font-family: 'Dosis', sans-serif;
+  font-weight: normal;
+  color: #888;
+}
+h1 {
+  font-size: 2em;
+}
+nav {
+  margin: 20px;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+  
+  list-style-type: none;
+}
+nav li {
+  float: left;
+  
+  font-size: 1.5em;
+  font-family: 'Dosis', sans-serif;
+  color: #888;
+}
+nav a {
+  margin-right: 5px;
+}
+a {
+  color: #888;
+  text-decoration: none;
+}
+.entries li {
+  clear: both;
+  padding: 10px 0px;
+  border-top: 1px solid #555;
+}
+footer {
+  clear: both;
+  margin-top: 10px;
+
+  font-size: 0.8em;
+  color: #888;
+}
+.title {
+  clear: both;
+  margin: 20px 0px;
+
+  font-size: 1.5em;
+}
+.left {
+  float: none;
+}
+.right {
+  float: none;
+}
+.content div.left {
+  width: 100%;
+}
+.content div.right {
+  width: 100%;
+  padding-left: 0px;
+
+  border-left: 0px;
+}
+.content a.right {
+  margin-top: 5px;
+  padding: 3px 8px;;
+  background-color: #555;
+  color: #fff !important;
+  font-size: 0.8em;
+}
+.post .left {
+  width: 100%; 
+  margin-top: 20px;
+}
+.post .right {
+  width: 100%; 
+}
+.back-button {
+  padding: 3px 8px;;
+  background-color: #555;
+  color: #fff !important;
+  font-size: 0.8em;
+  border-radius: 0px;
+}
+.back-button:after {
+  content: " Powrót";
+}
+.blurb {
+  margin-top: 0px;
+}

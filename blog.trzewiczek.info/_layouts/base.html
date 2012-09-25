@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title> {% if page.title %} {{ page.title }} | {% endif %} nil :: notatnik</title>
+  
+  <link href="http://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="alternate" type="application/atom+xml" title="trzewiczek blog" href="/atom.xml">
+ 
+  <link rel="stylesheet" href="/css/style.css" media="screen"/> 
+  <link rel="stylesheet" href="/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/> 
+</head>
+<body>
+ 
+    {{ content }}
+ 
+    <br style="clear: both" />
+    <footer>
+      <a style="float: left;" rel="license" href="http://creativecommons.org/licenses/by/3.0/pl/"><img alt="Licencja Creative Commons BY-PL 3.0" style="border-width:0; margin-top: 3px; margin-right: 5px;" src="http://i.creativecommons.org/l/by/3.0/pl/80x15.png"></a>
+      <span style="margin-left: 5px;">Wszystkie treści objęte są licencją Creative Commons Uznanie autorstwa 3.0 Polska</span>
+    </footer>
+    <br style="clear: both" />
+ 
+  <script>
+    (function check_load() {   
+       document.readyState !== "complete" ? setTimeout(check_load,11) : polish();
+    })();  
+
+    function polish() {
+      var ndash   = String.fromCharCode(8211);
+      var quote   = String.fromCharCode(8220);
+      var p_quote = String.fromCharCode(8222);
+      var hellip  = String.fromCharCode(8230);
+      
+      var list = document.getElementsByTagName('p');
+      var txt, e;
+      var i, len;
+
+      for(i = 0, len = list.length; i < len; ++i) {
+        e = list[i];
+        txt = e.innerHTML;
+
+        txt = txt.replace(/ - /g, " "+ ndash +" "); 
+        txt = txt.replace(new RegExp(quote,'g'), p_quote);
+        txt = txt.replace(/\.\.\./g, hellip);
+
+        e.innerHTML = txt;
+      }
+    }
+  </script>
+</body>
+</html>

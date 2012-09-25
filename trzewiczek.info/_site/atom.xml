@@ -3,13 +3,29 @@
  
  <title>trzewiczek blog</title>
  <link href="http://trzewiczek.info/atom.xml" rel="self"/>
- <updated>2012-04-25T19:27:46+02:00</updated>
+ <updated>2012-09-19T13:19:38+02:00</updated>
  <id>http://trzewiczek.info/</id>
  <author>
    <name>trzewiczek</name>
    <email>krzysztof@trzewiczek.info</email>
  </author>
  
+ 
+ <entry>
+   <title>Komornicka</title>
+   <link href="http://trzewiczek.info/2012/02/24/Komornicka.html"/>
+   <updated>2012-02-24T00:00:00+01:00</updated>
+   <id>http://trzewiczek.info//2012/02/24/Komornicka</id>
+   <content type="html"><p>Spektakl realizowany był w Lublinie (Scena InVitro) i Bydgoszczy (Teatr Polski), a ja w międzczasie pracowałem na pełen etat w Warszawie, przekopując się właśnie przez ustawę regulującą udostępnianie danych o środowisku. Czas dzieliłem zatem między biuro, w którym intensywnie przepisywaliśmy Raw Salad (nasze sztandarowe oprogramowanie), próby w teatrze, za którymi od dawna tak bardzo tęskniłem oraz pociągi, w których nadrabiałem zaległości w pracy teatralnej lub biurowej - w zależności, w którą stronę jechał pociąg.</p>
+
+<p>Do moich obowiązków należało napisanie kilku niedużych programów wspomajagąjcych pracę dźwięku w spektaklu. Jeden z nich okazał się najtrudniejszym fragmentem kodu, jaki kiedykolwiek przyszło mi napisać. Męczyliśmy się z nim do drugiej generalnej i pomimo wielu wątpliwości, które mnie nachodziły, Bartek konsekwentnie, ze spokojem powtarzał, że &#8220;mamy jeszcze &#8230; dni&#8221;.</p>
+
+<p>Premiera zaskoczyła chyba nas wszystkich. Każdy element spektaklu zagrał w pełni i w odpowiednim czasie, wszytko nabrało kształtów. Kiedy na koniec staliśmy wszyscy na scenie, kłaniając się publiczności, poczułem, że takie rzeczy można robić tylko z odpowiednimi ludźmi. W tym przypadku Bartkowi udało się zebrać naprawdę wyjątkowy zespół.</p>
+
+<p>Bartek Frąckowiak - reżyseria, scenariusz<br /> Krzysztof Kaliski - muzyka<br /> Anna Maria Karczmarska - scenografia<br /> Marek Krupa - realizacja dźwięku<br /> Bartosz Nalazek - reżyseria świateł<br /> Grzegorz Polak - realizaja świateł<br /> Anita Sokołowska - główna rola<br /> Weronika Szczawińska - scenariusz, dramatrurgia<br /> trzewiczek - programowanie dźwięku<br /></p>
+
+<p><span>24.02.2012 @</span> Warsztaty Kultury, Lublin<br /> <span>09.03.2012 @</span> Teatr Polski, Bydgoszcz<br /></p></content>
+ </entry>
  
  <entry>
    <title>Zlepy, szumy, dźwięki</title>
@@ -102,6 +118,8 @@
 
 <p>W czasie tych dwóch dni zagrałem dwa sety – duet z Gergő Kovátsem i trio z Gergő i Patrykiem Lichotą. Przyznam, że byłem dość podejrzliwy wobec propozycji zagrania z dwoma saksofonistami w trio, w którym nikt z nikim wcześniej nie grał. Saksofon to głośny instrument i skory do wyrywki. Tym razem jednak Panowie panowali nad sobą i tylko kilka razy zdarzyło się tak, że nie było mnie słychać zupełnie zza ściany złotego drewna. Przyznam, że chętnie zagrałbym jeszcze kiedyś w takim składzie. A może jeszcze z Philem na trzeciej rurce?</p>
 
+<p>Wideo seta w duecie z Gergő można zobaczyć <em><a title='Dokumentacja koncertu' href='http://vimeo.com/11614971'>tutaj</a></em></p>
+
 <p>Márkos Albert – wiolonczela<br /> János Bujdosó – gitara<br /> Piotr Bukowski – gitara<br /> András Halmos – perkusja<br /> Ernő Hock – kontrabas<br /> Gergő Kováts – saksofony, flet<br /> Patryk Lichota – preparowany saksofon, laptop<br /> Piotr Mełech – klarnet basowy<br /> Balázs Pándi – perkusja<br /> Máté Pozsár – pianino<br /> Radar – syntezator analogowy<br /> Piotr Tkacz – obiekty<br /> Tigrics – elektronika<br /> trzewiczek – laptop</p>
 
 <p>07-08.05.2010 – Srly, Budapest</p></content>
@@ -112,20 +130,47 @@
    <link href="http://trzewiczek.info/2010/04/08/Muzyka-organiczna.html"/>
    <updated>2010-04-08T00:00:00+02:00</updated>
    <id>http://trzewiczek.info//2010/04/08/Muzyka-organiczna</id>
-   <content type="html"><p>Zrobiło się poważnie, gdy Marcin Barski powiedział, co interesuje go najbardziej w mojej muzyce. Okazuje sie, że nasze zainteresowania się spotykają, bo organiczność muzyki to, coś co czego w muzyce szukam. Wciąż nie mogę tego problemu dobrze uchwycić, ale jest on dla mnie priorytetowy.</p>
+   <content type="html"><p>Zrobiło się poważnie, gdy Marcin Barski powiedział, co interesuje go najbardziej w mojej muzyce. Okazuje sie, że nasze zainteresowania się spotykają, bo organiczność muzyki to, coś czego w muzyce szukam. Wciąż nie mogę tego problemu dobrze uchwycić, ale jest on dla mnie priorytetowy.</p>
 
 <p>Graliśmy w Eszewerii kolejny duet z Philem Palmerem. To była prawdziwa przyjemność. Ostatnim razem, gdy graliśmy koncert nagranie było naprawdę koszmarne, więc poprosiłem Piotrka Żyłę o nagranie tego koncertu, jak należy. Piotrek bardzo chciał nam pomóc, lecz dwa dni przed koncertem usłyszałem: &#8220;Jadę do Lipska na kilka dni, ale nie przejmuj się - rozmawiałem juz z Michałem Dymnym i zgodził się to wszystko nagrać. Ja zrobię postprodukcję!&#8221;. Michał Dymny?! Gitarzysta, Michał Dymny?! No cóż - bardzo lubię Michała, więc czemu nie.</p>
 
 <p>Przed koncertem Michał powiedział, że jego pierwsza lekcja pracy w Samplitudzie odbyła się w chwili, gdy Piotrek pakował się do Lipska i że nie może przypomnieć sobie, dlaczego coś właśnie nie działa. Ostatecznie udało się jednak uruchomić Samplituda jak należy, a Michał spisał się na medal.</p>
 
-<p>To był bardzo dobry koncert - dużo znajomych, dobra muza i naprawdę sporo radości z grania. Jeśli ktoś zainteresowany, to zapraszam do posłuchania mojego solo.</p>
-<audio autobuffer='' controls='' preload='auto'> 
-  <source src='http://trzewiczek.vipserv.org/audio/trzewiczek_eszeweria_solo_2010-04-08.ogg' />
-  <source src='http://trzewiczek.vipserv.org/audio/trzewiczek_eszeweria_solo_2010-04-08.mp3' />
-</audio>
-<p>Phil Palmer – saksofon<br /> trzewiczek – komputer</p>
+<p>To był bardzo dobry koncert - dużo znajomych, dobra muza i naprawdę sporo radości z grania.</p>
+
+<p>Phil Palmer - saksofon<br /> trzewiczek - komputer</p>
 
 <p><span>08.04.2010 @</span> Eszeweria, Kraków</p></content>
+ </entry>
+ 
+ <entry>
+   <title>Takie duo</title>
+   <link href="http://trzewiczek.info/2010/02/02/Takie-duo.html"/>
+   <updated>2010-02-02T00:00:00+01:00</updated>
+   <id>http://trzewiczek.info//2010/02/02/Takie-duo</id>
+   <content type="html"><p>Chceliśmy pracować ze sobą od dawna, ale najzwyczajniej w świecie nie było okazji. Udało się co prawda zrobić w Teatrze Strudio projekt we dwoje, ale ja ostatecznie nie występowałem na scenie, więc się nie liczy. Kilka miesięcy później graliśmy trio z Anią i Łukaszem Kozakiem, po którym pojechaliśmy do Eszewerii na występ Pawła Korbusa. To był bardzo dobry wieczór, więc nieco z rozpędu zapytaliśmy Konrada Gęcę, czy nie byłoby opcji na <em>takie duo</em>: Ania i ja.</p>
+
+<p>W końcu po półtora roku gadania o tym, wystąpimy w duecie z improwizowanym materiałem. I choć szkoda, że w trakcie koncertu przez dużą część czasu muszę skupiać się na knefelkach i kręciołkach zamiast oglądać jak tańczy Ania, to przyjemność pracy z nią jest wyjątkowa. Każdemu polecam.</p>
+
+<p>Wideo drugiego seta można zobaczyć <em><a title='Dokumentacja wideo' href='http://vimeo.com/video/9180888'>tutaj</a></em></p>
+
+<p>Anna Bogdanowicz - taniec<br /> trzewiczek - komputer<br /></p>
+
+<p><span>02.02.2010 @</span> Eszeweria, Kraków<br /></p></content>
+ </entry>
+ 
+ <entry>
+   <title>Tołstoj</title>
+   <link href="http://trzewiczek.info/2010/01/27/Tolstoy.html"/>
+   <updated>2010-01-27T00:00:00+01:00</updated>
+   <id>http://trzewiczek.info//2010/01/27/Tolstoy</id>
+   <content type="html"><p>Zadzwonił Paweł Dobrowolski: &#8220;Za trzy dni jest taka akcja w Łaźni Nowej i gość od laptopa nie może. Może mógłbyś wskoczyć na jego miejsce?&#8221;. Poczułem się jak Bach - w Lipsku Telemann nie mógł, więc też zwięli tego drugiego. Co innego mogłem odpowiedzieć?</p>
+
+<p>Następnego dnia zadzwoniłem do Marcina Libera, spytać, o co tak naprawdę chodzi. Dowiedziałem się, że to czytanie performatywne <em>Śmierci Iwana Ilicza</em>. Czyta Mariusz Benoit, a całość zajmie około trzy godziny. Około, bo próby nie będzie, więc nie wiadomo, ile zajmie aktorowi przeczytanie stu dziesięciu stron książki. Nigdy nie brałem udziału w czymś takim. Przez trzy godny jestem na scenie, w pełni skoncentrowany, by wyłapywać fragmenty tekstu, który czytalem raz, dzień przed wystepem. I choć z początku brzmiało to zaskakująco, taki rodzaj koncentracji na scenie jest po prostu wspaniały.</p>
+
+<p>Mariusz Benoit - czytanie<br /> Marcin Liber - reżyseria<br /> Marzena Lis - fortepian<br /> trzewiczek - komputer<br /></p>
+
+<p><span>27.01.2010 @</span> Łaźnia Nowa, Kraków<br /></p></content>
  </entry>
  
  
