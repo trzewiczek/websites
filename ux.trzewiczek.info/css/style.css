@@ -1,0 +1,114 @@
+body {
+  width: 600px;
+  margin: 10px auto;
+
+  background-color: #fff;
+
+  font-size: 18px;
+  line-height: 1.7em;
+  font-family: 'Noticia Text', serif;
+  color: #444;
+}
+header {
+  margin: 0px;
+  float: left;
+}
+h1, h2, h3 {
+  margin: 0px;
+  padding: 0px;
+  
+  font-family: 'Dosis', sans-serif;
+  font-weight: normal;
+  color: #888;
+}
+h1 {
+  font-size: 2em;
+}
+nav {
+  margin: 20px;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+  
+  list-style-type: none;
+}
+nav li {
+  float: left;
+  
+  font-size: 1.5em;
+  font-family: 'Dosis', sans-serif;
+  color: #888;
+}
+nav a {
+  margin-right: 5px;
+}
+a {
+  color: #888;
+  text-decoration: none;
+}
+a:hover {
+  color: #aaa;
+  text-decoration: underline;
+}
+.entries li {
+  clear: both;
+  padding-top: 20px;
+}
+footer {
+  clear: both;
+  margin-top: 50px;
+
+  font-size: 0.8em;
+  color: #888;
+}
+.title {
+  clear: both;
+  margin: 20px 0px;
+
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.content div.left {
+  width: 13%;
+}
+.content div.right {
+  width: 84%;
+  padding-left: 10px;
+
+  /* border-left: 2px solid #ededcc; */
+}
+.content a.right {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.post {
+  overflow: auto;
+  margin-bottom: 50px;
+}
+.post .left {
+  width: 7%; 
+  margin-top: 20px;
+}
+.post .right {
+  width: 92%; 
+}
+.back-button {
+  margin: 0px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 2em;
+  color: #ccc;
+}
+.back-button:hover {
+  background-color: #fafafa;
+}
+.blurb {
+  margin-top: 0px;
+}
